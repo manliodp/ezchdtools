@@ -20,9 +20,10 @@ Required Dependencies:<br>
 ```
 mame-tools (provides chdman)
 sha1sum (for image hashing)
-unzip (required by ezchdzip)
 util-linux (provides column for log formatting)
 coreutils (provides realpath)
+unzip (required by ezchdzip)
+7zip (required by ezchdzip)
 ```
 
 **Quick Setup**<br>
