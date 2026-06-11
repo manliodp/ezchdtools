@@ -1,4 +1,4 @@
-**Ez CHD Management Tools**<br>
+# Ez CHD Management Tools
 
 A suite of lightweight Bash shell utilities designed for efficiently auditing and creating Compressed Hunks of Data (CHD) files.<br>
 These tools leverage mame-tools to automate bulk conversions and validate collection integrity against official Redump DAT files.<br>
@@ -36,7 +36,7 @@ chmod +x ezchdchk.sh ezchdiso.sh ezchdzip.sh
 ```
 Usage Guide:<br>
 
-***ezchdchk*** — Collection Auditor<br>
+## ezchdchk — Collection Auditor
 
 Validates your CHD collection against an official Redump data sheet. It extracts files temporarily to shared memory (`/dev/shm`) to perform SHA-1 verification without burning through SSD write cycles.<br>
 
@@ -66,7 +66,8 @@ Output Status Indicators:
 
 Note: Detailed tabular reports are automatically saved to ./logs/[DAT_NAME].log.<br>
 
-***ezchdiso*** — ISO to CHD Batch Converter<br>
+## ezchdiso — ISO to CHD Batch Converter
+
 Scans a source directory for uncompressed .iso files and processes them into space-saving CHDs.<br>
 
 #### Syntax
@@ -82,7 +83,8 @@ delete: Automatically deletes the original source .iso file only if the target .
 ./ezchdiso.sh /home/user/Downloads/RawIsos /home/user/Games/PS2 delete
 ```
 
-***ezchdzip*** — Zip to CHD Archive Converter<br>
+## ezchdzip — Zip to CHD Archive Converter
+
 Automates the tedious task of converting compressed .zip archives containing either CD formats (.cue/.bin) or DVD formats (.iso) straight into ready-to-use CHDs.<br>
 
 #### Syntax
@@ -98,7 +100,7 @@ delete: Automatically deletes the original source .zip archive only if the targe
 ./ezchdzip.sh /home/user/Downloads/ZippedGames /home/user/Games/PSX delete
 ```
 
-**Important System Notes**
+## Important System Notes
 
 Temporary Storage: Both ezchdchk and ezchdzip make use of RAM-backed storage via /dev/shm. This guarantees blazing-fast extraction and hashing performance while reducing storage drive wear.<br>
 RAM Capacity Warning: Ensure you have enough free RAM allocated to /dev/shm to match the size of the uncompressed games you are processing (especially critical for large DVD-based images).<br>
