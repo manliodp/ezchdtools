@@ -83,9 +83,9 @@ delete: Automatically deletes the original source .iso file only if the target .
 ./ezchdiso.sh /home/user/Downloads/RawIsos /home/user/Games/PS2 delete
 ```
 
-## ezchdzip — Zip to CHD Archive Converter
+## ezchdzip — Zip/7zip to CHD Archive Converter
 
-Automates the tedious task of converting compressed .zip archives containing either CD formats (.cue/.bin) or DVD formats (.iso) straight into ready-to-use CHDs.<br>
+Automates the tedious task of converting compressed .zip and .7z archives containing either CD formats (.cue/.bin) or DVD formats (.iso) straight into ready-to-use CHDs.<br>
 
 #### Syntax
 ```bash
@@ -93,7 +93,7 @@ Automates the tedious task of converting compressed .zip archives containing eit
 ```
 
 Parameters<br>
-delete: Automatically deletes the original source .zip archive only if the target .chd file was successfully verified on disk.<br>
+delete: Automatically deletes the original source .zip and .7z archive only if the target .chd file was successfully verified on disk.<br>
 
 #### Example
 ```bash
