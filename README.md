@@ -75,8 +75,9 @@ Scans a source directory for uncompressed .iso files and processes them into spa
 ./ezchdiso.sh [workdir] [destdir] [params]
 ```
 
-Parameters<br>
-delete: Automatically deletes the original source .iso file only if the target .chd was successfully created.<br>
+Parameters (Comma-separated, no spaces):<br>
+
+* ***delete***: Automatically deletes the original source .iso file only if the target .chd was successfully created.<br>
 
 #### Example
 ```bash
@@ -92,8 +93,9 @@ Automates the tedious task of converting compressed .zip and .7z archives contai
 ./ezchdzip.sh [workdir] [destdir] [params]
 ```
 
-Parameters<br>
-delete: Automatically deletes the original source .zip and .7z archive only if the target .chd file was successfully verified on disk.<br>
+Parameters (Comma-separated, no spaces):<br>
+
+* ***delete***: Automatically deletes the original source .zip and .7z archive only if the target .chd file was successfully verified on disk.<br>
 
 #### Example
 ```bash
