@@ -15,7 +15,7 @@ ezchdzip: Extracts zipped archives containing .iso or .cue/.bin files into share
 
 Ensure you have the necessary packages installed on your Linux system.<br>
 
-Required Dependencies:<br>
+Required Runtime Dependencies:<br>
 
 ```
 mame-tools (provides chdman)
