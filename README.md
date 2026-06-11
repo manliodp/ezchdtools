@@ -105,7 +105,7 @@ Parameters (Comma-separated, no spaces):<br>
 
 ## Important System Notes
 
-Temporary Storage: Both ezchdchk and ezchdzip make use of RAM-backed storage via /dev/shm. This guarantees blazing-fast extraction and hashing performance while reducing storage drive wear.<br>
-RAM Capacity Warning: Ensure you have enough free RAM allocated to /dev/shm to match the size of the uncompressed games you are processing (especially critical for large DVD-based images).<br>
+* **Temporary Storage**: Both ezchdchk and ezchdzip make use of RAM-backed storage via /dev/shm. This guarantees blazing-fast extraction and hashing performance while reducing storage drive wear.<br>
+* **RAM Capacity Warning**: Ensure you have enough free RAM allocated to /dev/shm to match the size of the uncompressed games you are processing (especially critical for large DVD-based images).<br>
 
 ***2026, manliodp***<br>
