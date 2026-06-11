@@ -6,9 +6,9 @@ These tools leverage mame-tools to automate bulk conversions and validate collec
 **Utilities Overview**<br>
 
 ```
-ezchdchk: Audits CHD files (CD/DVD) against a Redump.org XML DAT file, identifying matches, missing tracks, or files requiring renaming/moving.
-ezchdiso: Batch converts standard .iso DVD images into CHD format (createdvd).
-ezchdzip: Extracts zipped archives containing .iso or .cue/.bin files into shared memory (/dev/shm), converts them to CHD (createcd or createdvd), and cleans up the temporary files.
+ezchdchk.sh: Audits CHD files (CD/DVD) against a Redump.org XML DAT file, identifying matches, missing tracks, or files requiring renaming/moving.
+ezchdiso.sh: Batch converts standard .iso DVD images into CHD format (createdvd).
+ezchdzip.sh: Extracts zipped archives containing .iso or .cue/.bin files into shared memory (/dev/shm), converts them to CHD (createcd or createdvd), and cleans up the temporary files.
 ```
 
 **Prerequisites & Installation**<br>
