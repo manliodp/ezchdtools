@@ -49,7 +49,7 @@ Parameters (Comma-separated, no spaces):<br>
 
 * ***rename***: Automatically renames the .chd file if its hashes perfectly match a entry in the DAT but the file name is mismatched.<br>
 * ***move***: Moves unrecognized CHDs ([MISS]) into a subfolder named after their status inside your working directory.<br>
-* ***ignorefix***: Skips reporting in the log for entries marked as broken or incomplete.<br>
+* ***ignorefix***: Excludes incomplete ([FIXME]) entries from log reporting.<br>
 * ***verbose***: Appends individual track-by-track SHA-1 validation logs beneath the primary game status in the report.<br>
 
 Output Status Indicators:
