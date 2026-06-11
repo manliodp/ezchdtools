@@ -8,7 +8,7 @@ readonly COLUMNSS="%-120s\t%-7s\t%-11s\t%s"
 
 # --- Helper Functions ---
 usage() {
-    echo "$TOOLNAME: Validate CHD collections against redump.org DATs"
+    echo "$TOOLNAME: an utility to validate CHD collections against redump.org DATs"
     echo "Requires mame-tools package installed."
     echo "Usage: $0 [datfile] [workdir] [params]"
     echo "Params (comma-separated,no spaces in between): rename,move,ignorefix,verbose"
