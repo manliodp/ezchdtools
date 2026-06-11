@@ -47,7 +47,7 @@ Validates your CHD collection against an official Redump data sheet. It extracts
 
 Parameters (Comma-separated, no spaces):<br>
 
-* ***rename***: Automatically renames the .chd file if its hashes perfectly match a entry in the DAT but the file name is mismatched.<br>
+* ***rename***: Automatically renames the CHD file if its hashes perfectly match a entry in the DAT but the file name is mismatched.<br>
 * ***move***: Moves unrecognized CHDs ([MISS]) into a subfolder named after their status inside your working directory.<br>
 * ***ignorefix***: Excludes incomplete ([FIXME]) entries from log reporting.<br>
 * ***verbose***: Appends individual track-by-track SHA-1 validation logs beneath the primary game status in the report.<br>
@@ -86,7 +86,7 @@ Parameters (Comma-separated, no spaces):<br>
 
 ## ezchdzip — Zip/7zip to CHD Archive Converter
 
-Automates the tedious task of converting compressed .zip and .7z archives containing either CD formats (.cue/.bin) or DVD formats (.iso) straight into ready-to-use CHDs.<br>
+Automates the tedious task of converting compressed .zip and .7z archives containing either CD formats (CUE+BIN) or DVD formats (ISO) straight into ready-to-use CHDs.<br>
 
 #### Syntax
 ```bash
