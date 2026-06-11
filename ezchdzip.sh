@@ -14,7 +14,7 @@ usage() {
 }
 
 check_dependencies() {
-    for cmd in chdman realpath unzip; do
+    for cmd in chdman realpath unzip 7z; do
         if ! command -v "$cmd" &> /dev/null; then
             echo "Error: Required dependency '$cmd' not found."
             exit 1
