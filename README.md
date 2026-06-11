@@ -28,7 +28,7 @@ unzip (required by ezchdzip)
 
 **Quick Setup**<br>
 
-Save the scripts to your directory of choice (e.g., ~/bin/ or the directory with your games).<br>
+Save the scripts to your directory of choice.<br>
 Make the scripts executable:<br>
 
 #### Syntax
