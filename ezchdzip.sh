@@ -41,7 +41,7 @@ if [[ ! -d "$destdir" ]]; then
 fi
 
 # Collect files into an array for accurate counting
-mapfile -t zipfiles < <(find "$workdir" -maxdepth 1 -name "*.zip" | sort -f)
+mapfile -t zipfiles < <(find "$workdir" -maxdepth 1 \( -name "*.zip" -o -name "*.7z" \) | sort -f)
 zipfiles_total=${#zipfiles[@]}
 for ((i=0; i<zipfiles_total; i++)); do
     zipfile="${zipfiles[$i]}"
@@ -54,7 +54,11 @@ for ((i=0; i<zipfiles_total; i++)); do
     fi
     mkdir "$targetdir"
 
-    unzip "$zipfile" -d "$targetdir"
+    if [[ "$zipfile" == *.7z ]]; then
+        7z x "$zipfile" -o"$targetdir"
+    else
+        unzip "$zipfile" -d "$targetdir"
+    fi
 
     mapfile -t discfile < <(find "$targetdir" -maxdepth 1 -name "*.cue" -o -name "*.iso")
     discfile="${discfile[0]}"
