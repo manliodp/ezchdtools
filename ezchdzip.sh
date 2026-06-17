@@ -55,9 +55,9 @@ for ((i=0; i<zipfiles_total; i++)); do
     mkdir "$targetdir"
 
     if [[ "$zipfile" == *.7z ]]; then
-        7z x "$zipfile" -o"$targetdir"
+        7z e "$zipfile" -o"$targetdir"
     else
-        unzip "$zipfile" -d "$targetdir"
+        unzip -j "$zipfile" -d "$targetdir"
     fi
 
     mapfile -t discfile < <(find "$targetdir" -maxdepth 1 -name "*.cue" -o -name "*.iso")
