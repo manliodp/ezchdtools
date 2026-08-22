@@ -1,7 +1,7 @@
 #!/bin/bash
 
 readonly TOOLNAME="ezchdchk"
-readonly VERSION="0.97"
+readonly VERSION="0.98"
 readonly LOGDIR=$(realpath "logs")
 readonly SHMDIR="/dev/shm"
 readonly COLUMNSS="%-120s\t%-5s\t%-7s\t%-11s\t%s"
