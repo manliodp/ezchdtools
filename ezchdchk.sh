@@ -4,7 +4,7 @@ readonly TOOLNAME="ezchdchk"
 readonly VERSION="0.97"
 readonly LOGDIR=$(realpath "logs")
 readonly SHMDIR="/dev/shm"
-readonly COLUMNSS="%-120s\t%-7s\t%-11s\t%s"
+readonly COLUMNSS="%-120s\t%-5s\t%-7s\t%-11s\t%s"
 
 # --- Helper Functions ---
 usage() {
@@ -124,7 +124,7 @@ for ((i=0; i<chdfiles_total; i++)); do
                 else
                     trackstatus="[MISS]"
                 fi
-                trackinfo+=$(printf "$COLUMNSS" "- $trackname" "$trackhash" "$trackstatus" "$romname_unescaped")
+                trackinfo+=$(printf "$COLUMNSS" "* $trackname" "[TRK]" "$trackhash" "$trackstatus" "$romname_unescaped")
                 trackinfo+=$'\n'
             done
             if [[ $tracksnumber -gt 0 && $tracksmatched -eq $tracksnumber && "$gamename" == "$chdname_noext" ]]; then
@@ -147,7 +147,7 @@ for ((i=0; i<chdfiles_total; i++)); do
                 chdstatus="[MISS]"
             fi
             tracksratio=$(printf "[%02d/%02d]" "$tracksmatched" "$tracksnumber")
-            chdinfo+=$(printf "$COLUMNSS" "$chdname" "$tracksratio" "$chdstatus" "$gamename")
+            chdinfo+=$(printf "$COLUMNSS" "$chdname" "[CD]" "$tracksratio" "$chdstatus" "$gamename")
             chdinfo+=$'\n'
             if grep -qiw "verbose" <<< "$params"; then
                 chdinfo+="$trackinfo"
@@ -175,9 +175,9 @@ for ((i=0; i<chdfiles_total; i++)); do
         else
             chdstatus="[MISS]"
         fi
-        trackinfo=$(printf "$COLUMNSS" "- $isoname" "$isohash" "$chdstatus" "$romname")
+        trackinfo=$(printf "$COLUMNSS" "* $isoname" "[TRK]" "$isohash" "$chdstatus" "$romname")
         trackinfo+=$'\n'
-        chdinfo+=$(printf "$COLUMNSS" "$chdname" "01/01" "$chdstatus" "$gamename")
+        chdinfo+=$(printf "$COLUMNSS" "$chdname" "[DVD]" "[01/01]" "$chdstatus" "$gamename")
         chdinfo+=$'\n'
         if grep -qiw "verbose" <<< "$params"; then
             chdinfo+="$trackinfo"
