@@ -1,7 +1,7 @@
 #!/bin/bash
 
 readonly TOOLNAME="ezchdchk"
-readonly VERSION="0.98"
+readonly VERSION="0.99.1"
 readonly LOGDIR=$(realpath "logs")
 readonly SHMDIR="/dev/shm"
 readonly COLUMNSS="%-120s\t%-5s\t%-7s\t%-11s\t%s"
@@ -54,6 +54,11 @@ logfile="$LOGDIR/$datname.log"
 
 targetdir_base="$SHMDIR/$TOOLNAME/$datname"
 mkdir -p "$targetdir_base"
+
+chdfiles_match=0
+chdfiles_rename=0
+chdfiles_fixme=0
+chdfiles_miss=0
 
 # Collect files into an array for accurate counting
 mapfile -t chdfiles < <(find "$workdir" -maxdepth 1 -name "*.chd" | sort -f)
@@ -129,22 +134,26 @@ for ((i=0; i<chdfiles_total; i++)); do
             done
             if [[ $tracksnumber -gt 0 && $tracksmatched -eq $tracksnumber && "$gamename" == "$chdname_noext" ]]; then
                 chdstatus="[MATCH]"
+                ((chdfiles_match++))
                 if [[ "$trackfiles_total" -gt "$tracksnumber" ]]; then
                     chdstatus+="[+]"
                 fi
             elif [[ $tracksnumber -gt 0 && $tracksmatched -eq $tracksnumber ]]; then
-                gamename_rename="$gamename"
                 chdstatus="[RENAME]"
+                ((chdfiles_rename++))
+                gamename_rename="$gamename"
                 if [[ "$trackfiles_total" -gt "$tracksnumber" ]]; then
                     chdstatus+="[+]"
                 fi
             elif [[ $tracksnumber -gt 0 && $tracksmatched -lt $tracksnumber ]]; then
                 chdstatus="[FIXME]"
+                ((chdfiles_fixme++))
                 if grep -qiw "ignorefix" <<< "$params"; then
                     continue
                 fi
             else
                 chdstatus="[MISS]"
+                ((chdfiles_miss++))
             fi
             tracksratio=$(printf "[%02d/%02d]" "$tracksmatched" "$tracksnumber")
             chdinfo+=$(printf "$COLUMNSS" "$chdname" "[CD]" "$tracksratio" "$chdstatus" "$gamename")
@@ -169,11 +178,14 @@ for ((i=0; i<chdfiles_total; i++)); do
         fi
         if [[ "$gamename" == "$chdname_noext" ]]; then
             chdstatus="[MATCH]"
-        elif [[ -n "$matchline" ]]; then
-            gamename_rename="$gamename"
+            ((chdfiles_match++))
+            elif [[ -n "$matchline" ]]; then
             chdstatus="[RENAME]"
+            ((chdfiles_rename++))
+            gamename_rename="$gamename"
         else
             chdstatus="[MISS]"
+            ((chdfiles_miss++))
         fi
         trackinfo=$(printf "$COLUMNSS" "* $isoname" "[TRK]" "$isohash" "$chdstatus" "$romname")
         trackinfo+=$'\n'
@@ -211,3 +223,7 @@ done
 
 echo "Processing complete. The log file has been written. [$logfile]"
 echo "Files processed: $chdfiles_total"
+echo "Files [MATCH]: $chdfiles_match"
+echo "Files [RENAME]: $chdfiles_rename"
+echo "Files [FIXME]: $chdfiles_fixme"
+echo "Files [MISS]: $chdfiles_miss"
